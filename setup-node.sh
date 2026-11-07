@@ -5,7 +5,7 @@
 # Запуск (домен и SECRET_KEY скрипт спросит сам):
 #   sudo bash setup-node.sh
 # Или сразу параметрами:
-#   sudo bash setup-node.sh -d nl-multi.tippa.su -k 'eyJub2Rl...'  [-e me@mail.com] [-p 2222] [-y]
+#   sudo bash setup-node.sh -d node1.example.com -k 'eyJub2Rl...'  [-e me@mail.com] [-p 2222] [-y]
 # Без вопросов вообще (для программы-установщика): все параметры + -y, или через переменные окружения
 #   DOMAIN, SECRET_KEY, EMAIL, NODE_PORT, ASSUME_YES=1.
 set -euo pipefail
@@ -62,7 +62,7 @@ ask() {
   printf -v "$__var" '%s' "$__val"
 }
 
-while [[ -z "$DOMAIN" ]]; do ask DOMAIN "Домен ноды (например, nl-multi.tippa.su): "; done
+while [[ -z "$DOMAIN" ]]; do ask DOMAIN "Домен ноды (например, node1.example.com): "; done
 DOMAIN="${DOMAIN,,}"
 DOMAIN="${DOMAIN#http://}"; DOMAIN="${DOMAIN#https://}"; DOMAIN="${DOMAIN%%/*}"
 [[ "$DOMAIN" =~ ^([a-z0-9]([a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$ ]] || die "Некорректный домен: $DOMAIN"

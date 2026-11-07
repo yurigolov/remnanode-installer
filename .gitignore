@@ -1,0 +1,16 @@
+# Секреты нод: никогда не коммитить
+docker-compose.yml
+*.env
+.env*
+reality-keys*.txt
+*secret*
+*.key
+*.pem
+
+# Логи и отчёты
+*.log
+report*.txt
+
+# Системное
+.DS_Store
+Thumbs.db
